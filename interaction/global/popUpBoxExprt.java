@@ -24,7 +24,6 @@ public class popUpBoxExprt extends globalInteractionService{
 		
 		if(test == 0 || test == -1) { //attempt to stop reading but failed (Unstable)
 			ex.shutdownNow();
-			//callableSoundBoard.readLineInterrupt();
 		}
 	}
 	
