@@ -8,9 +8,7 @@ import javax.swing.JOptionPane;
 import ccc.interaction.global.popUpBox;
 
 public class ANPQuestionHolder extends ccc.interaction.global.popUpBox{
-	//private static JDialog holder;
-	
-	
+
 	public String questionYN(String question, String title) {
 		String value = "";
 	
