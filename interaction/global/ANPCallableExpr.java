@@ -7,12 +7,6 @@ public class ANPCallableExpr extends autoNotificationPusher{
 	Thread thread = null;
 	
 	protected void CallableStore(String control,String title, String text) {
-
-		
-		/*if(thread==null) {
-			thread = new Thread(new ccc.interaction.global.addons.external_freeTTS());
-			thread.start();
-		}*/
 		
 		Callable<Void> sounding = new Callable<Void>() {
 
@@ -73,7 +67,6 @@ public class ANPCallableExpr extends autoNotificationPusher{
 	
 	public void stop() {
 		ex.shutdownNow();
-		//callableSoundBoard.readLineInterrupt();
 	}
 	
 	
