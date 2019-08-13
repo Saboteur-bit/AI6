@@ -53,7 +53,6 @@ public class ANPCallableExpr extends autoNotificationPusher{
 			taskList.add(popUpError);}
 			
 		try {
-		//	System.out.println("reached");
 			ex.invokeAll(taskList);
 			if(stabilizer.getAddOnsStable()==true) {
 				ex.shutdownNow();
