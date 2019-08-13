@@ -18,7 +18,7 @@ public class ANPCallableExpr extends autoNotificationPusher{
 	private ExecutorService ex = Executors.newFixedThreadPool(2);
 	Thread thread = null;
 	
-	public void CallableStore(String control,String title, String text) {
+	protected void CallableStore(String control,String title, String text) {
 
 		Callable<Void> sounding = new Callable<Void>() {
 
