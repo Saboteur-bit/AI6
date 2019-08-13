@@ -20,12 +20,6 @@ public class ANPCallableExpr extends autoNotificationPusher{
 	
 	public void CallableStore(String control,String title, String text) {
 
-		
-		/*if(thread==null) {
-			thread = new Thread(new ccc.interaction.global.addons.external_freeTTS());
-			thread.start();
-		}*/
-		
 		Callable<Void> sounding = new Callable<Void>() {
 
 			@Override
@@ -71,7 +65,6 @@ public class ANPCallableExpr extends autoNotificationPusher{
 			taskList.add(popUpError);}
 			
 		try {
-		//	System.out.println("reached");
 			ex.invokeAll(taskList);
 			if(stabilizer.getAddOnsStable()==true) {
 				ex.shutdownNow();
@@ -85,7 +78,6 @@ public class ANPCallableExpr extends autoNotificationPusher{
 	
 	public void stop() {
 		ex.shutdownNow();
-		//callableSoundBoard.readLineInterrupt();
 	}
 	
 	
