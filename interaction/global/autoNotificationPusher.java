@@ -1,21 +1,3 @@
-package ccc.interaction.global;
-
-import java.awt.TrayIcon.MessageType;
-import java.awt.desktop.UserSessionEvent.Reason;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import javax.swing.JDialog;
-
-import ccc.interaction.global.addons.ANPQuestionHolder;
-import ccc.interaction.internalFeatures.soundBoard;
-import ccc.mainComponent.AIname;
-import ccc.mainComponent.globalID;
-import servicePackage.stabilizer;
-
 public class autoNotificationPusher {
 	private static boolean notiBox = false;
 	private static boolean notiFrame = false; //default is false
@@ -34,7 +16,7 @@ public class autoNotificationPusher {
 			notiBox = globalInteractionService.TrayBoxAC;
 			notiFrame = globalInteractionService.FrameAC; //name sensitive
 		}
-		//if(stabilizer.getStabilizerValue() == true && exprParallel == true) {popUpBox.warningBox("Automatic Pop-Up reader may cause overlay sound produce.", "Unstable - Expr System");}
+		if(stabilizer.getStabilizerValue() == true && exprParallel == true) {popUpBox.warningBox("Automatic Pop-Up reader may cause overlay sound produce.", "Unstable - Expr System");}
 	}
 	
 	public static void notPush(String type, String Title, String info, Class classObj, String selector) {
@@ -130,7 +112,8 @@ public class autoNotificationPusher {
 				ANPCallableExpr autoExpr = new ANPCallableExpr();
 				autoExpr.CallableStore("popUpWarning", Title , info);}}
 		else if (type.equals("ALERT")) {
-			if(exprParallel==false) {popUpBox.alertError(info, Title,true);}
+			//if(exprParallel==false) {popUpBox.alertError(info, Title,true);}
+			if(exprParallel==false) {popUpBox.alertError(info, Title);}
 			else{
 				ANPCallableExpr autoExpr = new ANPCallableExpr();
 				autoExpr.CallableStore("popUpError", Title , info);}}
