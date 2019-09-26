@@ -17,19 +17,19 @@ import ccc.mainComponent.experimental.DEBUG;
 import servicePackage.stabilizer;
 
 public class autoNotificationPusher {
-	private static boolean notiBox = false;
-	private static boolean notiFrame = false; //default is false
+	private  boolean notiBox = false;
+	private  boolean notiFrame = false; //default is false
 	//change to fix auto without Frame activation
-	private static boolean autoed = false;
-	private static boolean temp_Disable = false;
+	private  boolean autoed = false;
+	private  boolean temp_Disable = false;
 	
-	private static boolean exprParallel = false;
-	private static String exprStringText = "";
-	private static Class exprClassStore;
-	private static String exprTitle = "";
+	private  boolean exprParallel = false;
+	private  String exprStringText = "";
+	private  Class exprClassStore;
+	private  String exprTitle = "";
 	
 	@SuppressWarnings("static-access")
-	public static void checkActive() {
+	public  void checkActive() {
 		if(temp_Disable == false) {
 			notiBox = globalInteractionService.TrayBoxAC;
 			notiFrame = globalInteractionService.FrameAC; //name sensitive
@@ -37,29 +37,29 @@ public class autoNotificationPusher {
 		if(stabilizer.getStabilizerValue() == true && exprParallel == true) {popUpBox.warningBox("Automatic Pop-Up reader may cause overlay sound produce.", "Unstable - Expr System");}
 	}
 	
-	public static void notPush(String type, String Title, String info, Class classObj, String selector) {
+	public  void notPush(String type, String Title, String info, Class classObj, String selector) {
 		exprParallel = true;
 		pushSteam(type, Title, info, classObj, selector, "" , false, null);
 	}
 	
-	public static void notPush(String type, String Title, String info, Class classObj, String selector, String extendedTitle) {
+	public  void notPush(String type, String Title, String info, Class classObj, String selector, String extendedTitle) {
 		exprParallel = true;
 		pushSteam(type, Title, info, classObj, selector, extendedTitle, false, null);
 	}
 	
-	public static void notPush(String type, String Title, String info, Class classObj, String selector, String extendedTitle, boolean b, boolean exprParallelValue) {
+	public  void notPush(String type, String Title, String info, Class classObj, String selector, String extendedTitle, boolean b, boolean exprParallelValue) {
 		exprParallel = exprParallelValue;
 		pushSteam(type, Title, info, classObj, selector, extendedTitle, false, null);
 	}
 	
-	public static String notPushQuestionYN(String type, String Title) {
+	public  String notPushQuestionYN(String type, String Title) {
 		ANPQuestionHolder getHolder = new ANPQuestionHolder();
 		
 			//if(getHolder.equals("NO")) {System.out.println("HI");}
 		return getHolder.questionYN(type, Title);
 	}
 	
-	private static void pushSteam(String type, String Title, String info, Class classObj, String selector, String customNotification , boolean playSound, Exception e) {
+	private  void pushSteam(String type, String Title, String info, Class classObj, String selector, String customNotification , boolean playSound, Exception e) {
 		checkActive();
 		if((notiBox == true && autoed == false) && (selector.equals("TRAY") || selector.equals("AUTO")) && stabilizer.getAddOnsStable() == true) {
 			autoed = true;
@@ -118,7 +118,7 @@ public class autoNotificationPusher {
 			}
 	}
 	
-	private static void popUpAlt(String type, String Title, String info, Class classObj) {
+	private  void popUpAlt(String type, String Title, String info, Class classObj) {
 		if(type.equals("INFO")) {
 			if(exprParallel==false) {popUpBox.infoBox(info, classObj, Title);}
 			else{
@@ -139,33 +139,33 @@ public class autoNotificationPusher {
 	}
 	
 
-	public static void notPush(String string, String invalidValue, String string2, Class<Class> class1, String string3,
+	public  void notPush(String string, String invalidValue, String string2, Class<Class> class1, String string3,
 			String string4, boolean b) {
 		pushSteam(string, invalidValue, string2, class1, string3, string4, b, null);
 		exprParallel = true;
 	}
 
-	public static String getExprTitle() {
+	public  String getExprTitle() {
 		return exprTitle;
 	}
 
-	public static void setExprTitle(String exprTitle) {
+	public  void setExprTitle(String exprTitle) {
 		autoNotificationPusher.exprTitle = exprTitle;
 	}
 
-	public static String getExprStringText() {
+	public  String getExprStringText() {
 		return exprStringText;
 	}
 
-	public static void setExprStringText(String exprStringText) {
+	public  void setExprStringText(String exprStringText) {
 		autoNotificationPusher.exprStringText = exprStringText;
 	}
 
-	public static Class getExprClassStore() {
+	public  Class getExprClassStore() {
 		return exprClassStore;
 	}
 
-	public static void setExprClassStore(Class exprClassStore) {
+	public  void setExprClassStore(Class exprClassStore) {
 		autoNotificationPusher.exprClassStore = exprClassStore;
 	}
 
